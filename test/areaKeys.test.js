@@ -47,6 +47,11 @@ test('id-area-keys', async t => {
       assert.equal(result, true);
     });
 
+    await t.test('amenity=bicycle_parking is an area', t => {
+      const result = isArea({ 'amenity': 'bicycle_parking' });
+      assert.equal(result, true);
+    });
+
     await t.test('natural=tree_row is not an area', t => {
       const result = isArea({ 'natural': 'tree_row' });
       assert.equal(result, false);
